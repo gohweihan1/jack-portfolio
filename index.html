@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOONG JACK KHAI — PORT+FOLIO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rust: #7B4F2E;
+      --rust-light: #a06840;
+      --black: #111111;
+      --white: #FAFAF8;
+      --grey: #888;
+      --grey-light: #e8e8e4;
+      --nav-h: 60px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── Nav ───────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--grey-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--rust); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--rust); }
+
+    /* ─── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding-top: var(--nav-h);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-block {
+      width: 100%;
+      height: calc(100vh - var(--nav-h) - 180px);
+      min-height: 380px;
+      background: #c9b9a8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-block {
+      background-color: var(--white);
+    }
+
+    .hero-image-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #c9b9a8 0%, #a08070 40%, #7B4F2E 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image-placeholder span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+
+    .hero-footer {
+      padding: 28px 40px 36px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .hero-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .hero-name .accent { color: var(--rust); }
+
+    .hero-meta {
+      text-align: right;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .hero-subtitle {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rust);
+    }
+
+    .hero-tagline {
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 4px;
+    }
+
+    /* ─── Section Shared ────────────────────────────────────────── */
+    section {
+      padding: 100px 40px;
+    }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      margin-bottom: 48px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--grey-light);
+      margin-bottom: 60px;
+    }
+
+    /* ─── About ─────────────────────────────────────────────────── */
+    #about {
+      background: var(--white);
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+
+    .about-bio {
+      grid-column: span 2;
+      padding-right: 60px;
+      border-right: 1px solid var(--grey-light);
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .about-headshot {
+      flex-shrink: 0;
+      width: 160px;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .about-headshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    .about-bio p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #333;
+    }
+
+    .about-sidebar {
+      padding-left: 48px;
+    }
+
+    .about-block {
+      margin-bottom: 40px;
+    }
+
+    .about-block-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 12px;
+    }
+
+    .about-block ul {
+      list-style: none;
+    }
+
+    .about-block li {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: #444;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .about-block li:last-child { border-bottom: none; }
+
+    .about-block li strong {
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--grey-light);
+      grid-column: 1 / -1;
+    }
+
+    .skill-group-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 14px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border: 1px solid var(--grey-light);
+      color: #444;
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--rust);
+      color: var(--rust);
+    }
+
+    /* ─── Featured Projects ─────────────────────────────────────── */
+    #projects {
+      border-top: 1px solid var(--grey-light);
+      padding-bottom: 40px;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--grey-light);
+      padding: 60px 0;
+    }
+
+    .project-item:first-of-type { padding-top: 0; }
+
+    .project-item.reverse { direction: rtl; }
+    .project-item.reverse > * { direction: ltr; }
+
+    .project-image-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .project-item:hover .project-image-wrap img {
+      transform: scale(1.03);
+    }
+
+    .project-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: transform 0.6s ease;
+    }
+
+    .project-item:hover .project-placeholder {
+      transform: scale(1.02);
+    }
+
+    .project-placeholder span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .project-info {
+      padding: 0 0 0 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-item.reverse .project-info {
+      padding: 0 56px 0 0;
+    }
+
+    .project-number {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--grey);
+      margin-bottom: 8px;
+    }
+
+    .project-category {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .project-title .plus { color: var(--rust); }
+
+    .project-tagline {
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--grey);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .project-location {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #555;
+      max-width: 480px;
+    }
+
+    .project-collab {
+      margin-top: 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #aaa;
+    }
+
+    /* ─── Other Projects ────────────────────────────────────────── */
+    #other {
+      border-top: 1px solid var(--grey-light);
+      background: #f5f3ef;
+    }
+
+    .other-group {
+      margin-bottom: 2px;
+      background: var(--white);
+    }
+
+    .other-group:last-child { margin-bottom: 0; }
+
+    .other-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--grey-light);
+    }
+
+    .other-image {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .other-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .other-group:hover .other-image img {
+      transform: scale(1.03);
+    }
+
+    .other-info {
+      padding: 28px 32px 36px;
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .other-category {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 8px;
+    }
+
+    .other-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .other-title .plus { color: var(--rust); }
+
+    .other-desc {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.65;
+    }
+
+    /* ─── Contact ───────────────────────────────────────────────── */
+    #contact {
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 40px;
+      border-top: 3px solid var(--rust);
+    }
+
+    .contact-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .contact-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      text-transform: uppercase;
+      line-height: 0.9;
+    }
+
+    .contact-name .accent { color: var(--rust); }
+
+    .contact-links {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .contact-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 2px;
+    }
+
+    .contact-value {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #ccc;
+    }
+
+    .contact-value a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-value a:hover { color: var(--white); }
+
+    .contact-footer {
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-footer span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    .footer-brand { color: var(--rust) !important; }
+
+    /* ─── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      section { padding: 64px 24px; }
+
+      .nav-links { gap: 20px; }
+
+      .hero-footer { padding: 20px 24px 28px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .hero-meta { text-align: left; }
+
+      .about-grid { grid-template-columns: 1fr; }
+      .about-bio { grid-column: 1; padding-right: 0; border-right: none; border-bottom: 1px solid var(--grey-light); padding-bottom: 40px; margin-bottom: 40px; flex-direction: column; }
+      .about-headshot { width: 120px; }
+      .about-sidebar { padding-left: 0; }
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .project-item { grid-template-columns: 1fr; gap: 32px; }
+      .project-item.reverse { direction: ltr; }
+      .project-info { padding: 0 !important; }
+      .project-item.reverse .project-info { padding: 0 !important; }
+
+      .other-images { grid-template-columns: 1fr; }
+
+      .contact-inner { flex-direction: column; align-items: flex-start; gap: 40px; }
+      .contact-links { text-align: left; align-items: flex-start; }
+      .contact-item { align-items: flex-start; }
+      .contact-footer { flex-direction: column; gap: 8px; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero-name { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">SJK <span>/</span> PORT<span>+</span>FOLIO</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#other">Other</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-image-block">
+      <img src="pages/page-01.jpg" alt="Portfolio cover" />
+    </div>
+    <div class="hero-footer">
+      <h1 class="hero-name">
+        SOONG<br>JACK <span class="accent">KHAI</span>
+      </h1>
+      <div class="hero-meta">
+        <div class="hero-subtitle">PORT<span style="color:#7B4F2E">+</span>FOLIO / RE<span style="color:#7B4F2E">+</span>VISIONS</div>
+        <div class="hero-tagline">Key Projects as of 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">RE+INTRODUCE</div>
+    <h2 class="section-title">About</h2>
+    <div class="divider"></div>
+
+    <div class="about-grid">
+      <div class="about-bio">
+        <div class="about-headshot">
+          <img src="pages/headshot.png" alt="Soong Jack Khai" />
+        </div>
+        <p>
+          Soong Jack Khai is a Bachelor of Architecture student at the National University of Singapore with a background in art, design, and public speaking. He integrates fine art and hand sketching into his architectural process, exploring how buildings can respond to site, community, and the human body.
+        </p>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="about-block">
+          <div class="about-block-title">Education</div>
+          <ul>
+            <li><strong>NUS</strong> — Bachelor of Arts in Architecture, 2023–Present</li>
+            <li><strong>River Valley High School</strong> — GCE A-Level, 2019–2020</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <div class="about-block-title">Experience</div>
+          <ul>
+            <li><strong>Architecture Intern</strong> — TENArchitects (Jun–Aug 2025)</li>
+            <li><strong>Education Director</strong> — The Architecture Society, NUS (2024–2025)</li>
+            <li><strong>Events Director</strong> — The Architecture Society, NUS (2023–2024)</li>
+            <li><strong>Special Projects Director</strong> — JC Council (2019–2020)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <div class="about-block-title">Awards</div>
+          <ul>
+            <li>Ong Guat Aing &amp; Toh Seng Huat Scholarship — NUS, 2025</li>
+            <li>Singapore Story Maps Challenge — 1st Place, NLB 2017</li>
+            <li>31st YMCA Plain English Speaking Award — National Finalist 2017</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <div>
+          <div class="skill-group-title">Software Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">ArchiCAD</span>
+            <span class="skill-tag">Adobe Illustrator</span>
+            <span class="skill-tag">Photoshop</span>
+            <span class="skill-tag">InDesign</span>
+            <span class="skill-tag">Affinity Studio</span>
+            <span class="skill-tag">Rhinoceros 3D</span>
+            <span class="skill-tag">Twinmotion</span>
+            <span class="skill-tag">Procreate</span>
+            <span class="skill-tag">Canva</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">General Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Painting</span>
+            <span class="skill-tag">Pencil + Ink</span>
+            <span class="skill-tag">3D Modelling</span>
+            <span class="skill-tag">Public Speaking</span>
+            <span class="skill-tag">Presentation</span>
+            <span class="skill-tag">Animation + Video</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section id="projects">
+    <div class="section-label">RE+VISIONS</div>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="divider"></div>
+
+    <!-- Project 01 — BOOK+WORM -->
+    <div class="project-item">
+      <div class="project-image-wrap">
+        <img src="pages/page-05.jpg" alt="BOOK+WORM render" />
+      </div>
+      <div class="project-info">
+        <div class="project-number">01 / 04</div>
+        <div class="project-category">RE<span style="color:var(--rust)">+</span>USE</div>
+        <h3 class="project-title">BOOK<span class="plus">+</span>WORM</h3>
+        <p class="project-tagline">"What if a facade could read the climate like a book?"</p>
+        <div class="project-location">NUS E1 Campus Building</div>
+        <p class="project-desc">An adaptive modular winged facade intervention on an existing campus building. The facade performs quiet symbiosis — modulating light, encouraging airflow, and framing communal spaces for reading, learning, and gathering. It reimagines the facade not as a fixed skin, but as a living interface: curious, responsive, and ever-changing.</p>
+        <div class="project-collab">Co-designed with Charles Tew Jun Xiang</div>
+      </div>
+    </div>
+
+    <!-- Project 02 — SOLITARY+ COMMUNITIES -->
+    <div class="project-item reverse">
+      <div class="project-image-wrap">
+        <img src="pages/page-10.jpg" alt="SOLITARY+COMMUNITIES model" />
+      </div>
+      <div class="project-info">
+        <div class="project-number">02 / 04</div>
+        <div class="project-category">RE<span style="color:var(--rust)">+</span>IMAGINE</div>
+        <h3 class="project-title">SOLITARY<span class="plus">+</span><br>COMMUNITIES</h3>
+        <p class="project-tagline">"What if collective living reflected the paradoxes of community + solidarity?"</p>
+        <div class="project-location">Tiong Bahru, Singapore</div>
+        <p class="project-desc">A modular aggregation inspired by the duality of Tiong Bahru's exposed central streets and hidden communal back alleys. Operative Art was used as a generative tool to translate this social paradox into an architecture of solitary peaks and hidden communal spaces.</p>
+      </div>
+    </div>
+
+    <!-- Project 03 — ARM+(N)ATURE -->
+    <div class="project-item">
+      <div class="project-image-wrap">
+        <img src="pages/page-15.jpg" alt="ARM+(N)ATURE model" />
+      </div>
+      <div class="project-info">
+        <div class="project-number">03 / 04</div>
+        <div class="project-category">RE<span style="color:var(--rust)">+</span>IMAGINE</div>
+        <h3 class="project-title">ARM<span class="plus">+</span>(N)ATURE</h3>
+        <p class="project-tagline">"What if architecture and human anatomy mirror each other in conflict?"</p>
+        <div class="project-location">Kallang, Singapore</div>
+        <p class="project-desc">A study of the human body's extremities as architectural generator. An arm-extension prosthetic was used to gather ergonomic data, translating joint dynamics into structural elements expressing separation, surface, and intensity — housing a contact sports programme.</p>
+      </div>
+    </div>
+
+    <!-- Project 04 — CERAMICS+COVE -->
+    <div class="project-item reverse">
+      <div class="project-image-wrap">
+        <img src="pages/page-20.jpg" alt="CERAMICS+COVE render" />
+      </div>
+      <div class="project-info">
+        <div class="project-number">04 / 04</div>
+        <div class="project-category">RE<span style="color:var(--rust)">+</span>VIVE</div>
+        <h3 class="project-title">CERAMICS<span class="plus">+</span>COVE</h3>
+        <p class="project-tagline">"What if collective living reflected the rituals of making?"</p>
+        <div class="project-location">Kampong Glam, Singapore</div>
+        <p class="project-desc">A mixed-use residential building and pottery studio drawing from Van Eyck's principles and the site's ceramics heritage. The architectural form is generated by the rituals of clay-making — how the process of throwing, coiling, and forming informs spatial movement and order.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER PROJECTS -->
+  <section id="other">
+    <div class="section-label">RE+STUDY</div>
+    <h2 class="section-title">Other Projects</h2>
+    <div class="divider"></div>
+
+    <div class="other-group">
+      <div class="other-images">
+        <div class="other-image"><img src="pages/page-25.jpg" alt="NTU Hive sketch" /></div>
+        <div class="other-image"><img src="pages/page-26.jpg" alt="NTU Hive sketch 2" /></div>
+      </div>
+      <div class="other-info">
+        <div class="other-category">Ink Study</div>
+        <h3 class="other-title">THE NTU <span class="plus">+</span> HIVE</h3>
+        <p class="other-desc">On-site ink sketch study of The NTU Hive — integrating hand drawing and fine art observation into architectural documentation and analysis.</p>
+      </div>
+    </div>
+
+    <div class="other-group">
+      <div class="other-images">
+        <div class="other-image"><img src="pages/page-27.jpg" alt="KL Photobooth studio" /></div>
+        <div class="other-image"><img src="pages/page-28.jpg" alt="KL Photobooth studio 2" /></div>
+      </div>
+      <div class="other-info">
+        <div class="other-category">Interior Study</div>
+        <h3 class="other-title">KL <span class="plus">+</span> PHOTOBOOTH</h3>
+        <p class="other-desc">A photobooth studio interior design proposal in Kuala Lumpur — exploring light, materiality, and intimate spatial experience through fine art and design thinking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-name">
+        SOONG<br>JACK <span class="accent">KHAI</span>
+      </div>
+      <div class="contact-links">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="mailto:jack.khai.soong@gmail.com">jack.khai.soong@gmail.com</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+65 8594 1559</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Program</span>
+          <span class="contact-value">BA Architecture — NUS, 2023–Present</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-footer">
+      <span class="footer-brand">PORT+FOLIO / RE+VISIONS</span>
+      <span>Key Projects as of 2026</span>
+    </div>
+  </section>
+
+  <script>
+    // Minimal nav active-state on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === `#${id}` ? '#7B4F2E' : '';
+          });
+        }
+      });
+    }, { threshold: 0.4 });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
